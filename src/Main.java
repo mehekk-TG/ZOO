@@ -3,7 +3,8 @@ public class Main {
         Zoo zoo = new Zoo();
 
         zoo.addAnimal(new Animal());
-        zoo.addAnimal(new Animal());
+        zoo.addAnimal(new Animal("Abablah", "Goose", 21, 32132.3, false));
+        zoo.addAnimal(new Animal("Amorgus", "Dragon", 12239, 13423.4, true));
 
         System.out.println(zoo.getAnimals());
 
@@ -12,6 +13,9 @@ public class Main {
 
         System.out.println(zoo.getEmployees());
 
-        System.out.println(zoo);
+        System.out.println(Zoo.isOpen());
+
+
+        zoo.performance();
     }
 }

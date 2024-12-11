@@ -1,20 +1,27 @@
 import java.util.LinkedList;
 
+
+
+
 public class Zoo {
+    static float time = 5;
+    static int openTime = 8;
+    static int closeTime = 20;
+
     LinkedList <Animal> animals = new LinkedList<Animal>();
     LinkedList <Employee> employees = new LinkedList<Employee>();
 
-    boolean open;
+
     int money;
 
 
-    public Zoo(boolean open, int money) {
-        this.open = open;
+    public Zoo(int money) {
+
         this.money = money;
     }
 
     public Zoo() {
-        this.open = true;
+
         this.money = 1000000;
     }
 
@@ -36,15 +43,35 @@ public class Zoo {
         employees.remove(employee);
     }
 
-
-    public boolean isOpen() {
-        return open;
+    public static float getTime() {
+        return time;
     }
 
-    public void setOpen(boolean open) {
-        this.open = open;
+    public static void setTime(float time) {
+        Zoo.time = time;
     }
 
+    public static int getOpenTime() {
+        return openTime;
+    }
+
+    public static void setOpenTime(int openTime) {
+        Zoo.openTime = openTime;
+    }
+
+    public static int getCloseTime() {
+        return closeTime;
+    }
+
+    public static void setCloseTime(int closeTime) {
+        Zoo.closeTime = closeTime;
+    }
+    public static boolean isOpen() {
+        if (time >= openTime && time < closeTime) {
+            return true;
+        }
+        return false;
+    }
     public int getMoney() {
         return money;
     }
@@ -72,13 +99,20 @@ public class Zoo {
             string += employees.get(i).toString() + "\n";
         }
 
-        string += "\n";
-
         return string;
     }
 
     @Override
     public String toString() {
-        return "Open: " + open + "\nMoney: " + money + "\n" + getAnimals() + "\n" + getEmployees();
+        return "Money: " + money + "\n" + getAnimals() + "\n" + getEmployees();
     }
+
+
+    public void performance() {
+        System.out.println(animals.get((int) (Math.random() * (animals.size()))).name + " is doing a jig.");
+    }
+
+
+
+
 }
